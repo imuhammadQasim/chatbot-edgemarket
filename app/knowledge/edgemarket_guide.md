@@ -54,7 +54,7 @@ will happen; after the market closes, the community validates what actually happ
   on the **Validate** page using objective evidence ("Don't just predict what happens. Verify what happened").
   There is a limit on how many validations one person can submit.
 - Correct validators earn **validator rewards**: a share of 1% of everything predicted on that market,
-  paid in VERA over Telegram.
+  paid in off-chain SIGNAL over Telegram.
 - When the result is published the market is **Resolved** and shows its winning outcome. A market can also be
   ended early by an admin, or refunded, in which case stakes are returned.
 
@@ -63,7 +63,7 @@ Use **Create market** ("Define your prediction, set the rules, and publish it pe
 1. **Define your prediction**: a factual market question, an objective validation question validators can
    verify with evidence, and two or more unique outcomes.
 2. **Configure rules & economics**: category, closing time (shown in local time and UTC), accepted tokens
-   (SIGNAL and/or VERA), creator and referral rewards (maximum 5% each), and the wallets or Telegram IDs that
+   (SIGNAL and/or off-chain SIGNA), creator and referral rewards (maximum 5% each), and the wallets or Telegram IDs that
    receive them.
 3. **Ready to launch**: review the checklist and costs (contract deployment gas, validation protocol,
    creator/referral setup), confirm the market follows the EdgeMarket Protocol, and deploy it on-chain with

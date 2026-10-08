@@ -201,7 +201,7 @@ def map_activity(bet: dict[str, Any]) -> dict[str, Any]:
     return {
         "outcome": clean_text(bet.get("prediction"), 120),
         "amount": bet.get("amount"),
-        # Off-chain predictions are the VERA ("beton") ones; outcomeStats counts them the same way.
+        # Off-chain predictions are the off-chain SIGNA ("beton") ones; outcomeStats counts them the same way.
         "currency": "VERA",
         "time": iso(parse_timestamp(bet.get("date"))),
         "wallet": truncate_wallet(bet.get("wallet")) or ("Telegram user" if bet.get("telegramUserId") else None),

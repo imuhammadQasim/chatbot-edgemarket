@@ -29,8 +29,8 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     # --- LLM -----------------------------------------------------------------
-    llm_provider: Provider = "groq"
-    llm_model: str = "openai/gpt-oss-120b"
+    llm_provider: Provider = "openai"
+    llm_model: str = "gpt-5-mini"
     # Unset means "provider default". Some reasoning models reject any value.
     llm_temperature: float | None = None
     # Accepted by all three providers (low/medium/high; gemini also "minimal",

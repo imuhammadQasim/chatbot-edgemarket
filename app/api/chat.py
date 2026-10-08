@@ -229,7 +229,17 @@ async def begin_turn(
     return turn
 
 
-@router.post("/chat/stream")
+SSE_DOC = """Server-Sent Events, in order: `meta` {session_id, message_id}, then `status` {label} while a tool
+runs and `token` {text} chunks, then `done` {message_id, finish_reason}; or `error` {code, message}.
+`: ping` comments keep the connection alive. Swagger UI shows the stream only once it has finished."""
+
+
+@router.post(
+    "/chat/stream",
+    summary="Stream an assistant reply (SSE)",
+    response_class=StreamingResponse,
+    responses={200: {"content": {"text/event-stream": {}}, "description": SSE_DOC}},
+)
 async def chat_stream(
     request: Request,
     body: ChatRequest,

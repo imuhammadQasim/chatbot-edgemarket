@@ -86,7 +86,7 @@ def build_tools(api: MarketAPI) -> list[BaseTool]:
     @tool("get_market_stats", args_schema=MarketIdArgs)
     @guarded
     async def get_market_stats(market_id: str) -> str:
-        """Live per-outcome stats of one market: participants, Market Confidence %, Market Liquidity %, staked VERA. Same numbers as the market page."""
+        """Live per-outcome stats of one market: participants, Market Confidence %, Market Liquidity %, staked SIGNAL. Same numbers as the market page."""
         if not is_object_id(market_id):
             return BAD_ID
         doc = await api.get_market(market_id)
@@ -107,7 +107,7 @@ def build_tools(api: MarketAPI) -> list[BaseTool]:
     @tool("get_recent_activity", args_schema=ActivityArgs)
     @guarded
     async def get_recent_activity(market_id: str, limit: int = 10) -> str:
-        """Most recent off-chain (VERA) predictions on one market: outcome, amount, time and a shortened wallet."""
+        """Most recent off-chain (SIGNAL) predictions on one market: outcome, amount, time and a shortened wallet."""
         if not is_object_id(market_id):
             return BAD_ID
         bets = await api.recent_activity(market_id)

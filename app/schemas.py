@@ -3,7 +3,7 @@
 import re
 from datetime import datetime
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 OBJECT_ID_RE = re.compile(r"^[0-9a-fA-F]{24}$")
 
@@ -13,6 +13,11 @@ def is_object_id(value: str | None) -> bool:
 
 
 class ChatRequest(BaseModel):
+    # Shown as the pre-filled body in /docs; omit session_id to start a new chat.
+    model_config = ConfigDict(
+        json_schema_extra={"examples": [{"market_id": "69ae9afbd3202882511cf348", "message": "Who is leading?"}]}
+    )
+
     session_id: str | None = Field(default=None, max_length=64)
     market_id: str | None = None
     # Length is enforced in the route (after trimming) so it can answer with the
