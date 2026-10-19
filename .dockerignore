@@ -1,0 +1,24 @@
+# Secrets: pass at runtime with --env-file, never bake into the image
+.env
+.env.*
+!.env.example
+
+.git
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+tests/
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+Dockerfile
+docker-compose*.yml
+.dockerignore

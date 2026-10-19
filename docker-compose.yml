@@ -1,0 +1,28 @@
+# Local stack: chatbot + MongoDB.  Run: docker compose up --build
+services:
+  chatbot:
+    build: .
+    env_file: .env
+    environment:
+      # Point at the compose Mongo service instead of localhost
+      MONGODB_URI: mongodb://mongo:27017
+    ports:
+      - "8000:8000"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:8
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

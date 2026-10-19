@@ -68,7 +68,7 @@ class Settings(BaseSettings):
     max_tool_calls_per_turn: int = 6
 
     # Comma separated; merged with REQUIRED_ORIGINS.
-    allowed_origins: str = "http://localhost:5173,http://localhost:5175"
+    allowed_origins: str = "http://localhost:5173,http://localhost:5175, http://localhost:5175,https://edgemarket.ai/"
 
     @property
     def cors_origins(self) -> list[str]:
